@@ -1,10 +1,12 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using Random = UnityEngine.Random;
 
 public class GunController : MonoBehaviour
 {
-    [SerializeField] private Vector3 shootPosition;
+    [SerializeField] private Transform shootOrigin;
     [SerializeField] private FireMode _startFiringMode;
 
     [SerializeField] private Transform[] projectileSpawn;
@@ -20,7 +22,7 @@ public class GunController : MonoBehaviour
 
     public FireMode FiringMode { get; set; }
 
-    public float ShootingHeight => shootPosition.y;
+    public float ShootingHeight => shootOrigin.position.y;
 
     private void Start()
     {
@@ -70,11 +72,5 @@ public class GunController : MonoBehaviour
         Auto,
         Burst,
         Single
-    }
-
-    private void OnDrawGizmosSelected()
-    {
-        Gizmos.color = Color.green;
-        Gizmos.DrawWireCube(shootPosition, Vector3.one);
     }
 }

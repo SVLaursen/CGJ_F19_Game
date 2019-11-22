@@ -430,12 +430,14 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   shootOrigin: {fileID: 1791803895}
   _startFiringMode: 0
-  projectileSpawn: []
-  projectile: {fileID: 0}
+  projectileSpawn:
+  - {fileID: 1791803895}
+  projectile: {fileID: 758081542748593345, guid: 0e9ca5bee05e396458e3b2f2416197fb,
+    type: 3}
   msBetweenShots: 100
   muzzleVelocity: 35
   burstCount: 0
-  kickMinMax: {x: 0.05, y: 0.2}
+  kickMinMax: {x: 0, y: 0}
 --- !u!114 &1509557372
 MonoBehaviour:
   m_ObjectHideFlags: 0

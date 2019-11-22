@@ -12,8 +12,8 @@ public class Enemy : LivingEntity {
 	[SerializeField] private ParticleSystem deathEffect;
 
 	private NavMeshAgent _pathfinder;
-	private Transform _target;
 	private LivingEntity _targetEntity;
+	private Transform _target;
 
 	[Header("Attack Settings")]
 	[SerializeField] private float attackDistanceThreshold = .5f;
@@ -25,6 +25,7 @@ public class Enemy : LivingEntity {
 	private float targetCollisionRadius;
 
 	private bool hasTarget;
+	private AiController _controller;
 
 	private void Awake() {
 		_pathfinder = GetComponent<NavMeshAgent> ();
@@ -37,6 +38,8 @@ public class Enemy : LivingEntity {
 			
 			myCollisionRadius = GetComponent<CapsuleCollider> ().radius;
 			targetCollisionRadius = _target.GetComponent<CapsuleCollider> ().radius;
+
+			_controller = FindObjectOfType<AiController>();
 		}
 	}
 	
@@ -53,9 +56,9 @@ public class Enemy : LivingEntity {
 	public void SetCharacteristics(float moveSpeed, int damageIncrease, int enemyHealth) {
 		_pathfinder.speed = moveSpeed;
 
-		if (hasTarget) {
+		if (hasTarget)
 			damage += damageIncrease;
-		}
+		
 		health = enemyHealth;;
 	}
 
@@ -70,6 +73,7 @@ public class Enemy : LivingEntity {
 	private void OnTargetDeath() {
 		hasTarget = false;
 		_currentState = State.Idle;
+		_controller.DeactivateEnemy(this);
 	}
 
 	private void Update ()

@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using Cinemachine;
 
 public class Projectile : MonoBehaviour
 {
@@ -12,6 +13,8 @@ public class Projectile : MonoBehaviour
     private float _lifetime = 3f;
     private float _skinWidth = 0.1f;
 
+    private CinemachineImpulseSource _spawnShake;
+
     public void SetSpeed(float speed) => _speed = speed;
 
     private void Start()
@@ -21,6 +24,9 @@ public class Projectile : MonoBehaviour
 
         if (initialCollisions.Length > 0)
             OnHitObject(initialCollisions[0], transform.position);
+
+        _spawnShake = GetComponent<CinemachineImpulseSource>();
+        _spawnShake.GenerateImpulse();
     }
 
     private void Update()

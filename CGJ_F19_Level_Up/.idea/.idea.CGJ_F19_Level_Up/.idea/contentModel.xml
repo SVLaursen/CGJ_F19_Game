@@ -1,4 +1,4 @@
-﻿<?xml version="1.0" encoding="UTF-8"?>
+<?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ContentModelStore">
     <e p="C:\Repositories\CGJ_F19_Game\CGJ_F19_Level_Up" t="IncludeRecursive">
@@ -10,6 +10,9 @@
           </e>
           <e p="AI" t="Include">
             <e p="Enemy.cs" t="Include" />
+          </e>
+          <e p="Camera" t="Include">
+            <e p="CameraController.cs" t="Include" />
           </e>
           <e p="Interfaces" t="Include">
             <e p="ITakeDamage.cs" t="Include" />

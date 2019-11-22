@@ -24,12 +24,18 @@ public class GunController : MonoBehaviour
     private int _shotsRemainingInBurst;
 
     public FireMode FiringMode { get; set; }
+    public float MsBetweenShots { get; set; }
+    public float MuzzleVelocity { get; set; }
+    public Vector2 KickMinMax { get; set; }
 
     public float ShootingHeight => shootOrigin.position.y;
 
     private void Start()
     {
         FiringMode = _startFiringMode;
+        MsBetweenShots = msBetweenShots;
+        MuzzleVelocity = muzzleVelocity;
+        KickMinMax = kickMinMax;
     }
 
     public void OnTriggerHold()
@@ -61,15 +67,14 @@ public class GunController : MonoBehaviour
 
         for (var i = 0; i < projectileSpawn.Length; i ++) 
         {
-            _nextShotTime = Time.time + msBetweenShots / 1000;
+            _nextShotTime = Time.time + MsBetweenShots / 1000;
                 
             var newProjectile = Instantiate (projectile, projectileSpawn[i].position, projectileSpawn[i].rotation) as Projectile;
-            newProjectile.SetSpeed (muzzleVelocity);
-
+            newProjectile.SetSpeed (MuzzleVelocity);
 			//TODO: New projectiles should have new stats applied. These stats should come from somewhere... ~Stefan
         }
 
-        transform.localPosition -= Vector3.forward * Random.Range(kickMinMax.x, kickMinMax.y);
+        transform.localPosition -= Vector3.forward * Random.Range(KickMinMax.x, KickMinMax.y);
     }    
 
     public enum FireMode

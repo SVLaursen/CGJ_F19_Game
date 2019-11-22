@@ -65,12 +65,13 @@ public class Enemy : LivingEntity {
 	public override void TakeHit (int damage, Vector3 hitPoint, Vector3 hitDirection)
 	{
 		if (damage >= health) {
-			Destroy(Instantiate(deathEffect.gameObject, hitPoint, Quaternion.FromToRotation(Vector3.forward, hitDirection)) as GameObject, deathEffect.startLifetime);
+			//Destroy(Instantiate(deathEffect.gameObject, hitPoint, Quaternion.FromToRotation(Vector3.forward, hitDirection)) as GameObject, deathEffect.startLifetime);
 		}
 		base.TakeHit (damage, hitPoint, hitDirection);
 	}
 
 	private void OnTargetDeath() {
+		Debug.Log("Die my darling");
 		hasTarget = false;
 		_currentState = State.Idle;
 		_controller.DeactivateEnemy(this);

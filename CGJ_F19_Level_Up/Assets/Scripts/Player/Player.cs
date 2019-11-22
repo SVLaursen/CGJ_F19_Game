@@ -7,30 +7,31 @@ using UnityEngine;
 public class Player : LivingEntity
 {
     [SerializeField] private float moveSpeed = 5;
-	[SerializeField] private float moveSpeedDefault = 5;
 
-
-	private Camera _viewCamera;
+    private Camera _viewCamera;
     private PlayerMotor _motor;
-    GunController gunController;
+    private GunController _gunController;
+    
+    public float MoveSpeed { get; set; }
 	
     protected override void Start () {
         base.Start ();
         
         _motor = new PlayerMotor(GetComponent<Rigidbody>());
-        gunController = GetComponent<GunController> ();
+        _gunController = GetComponent<GunController> ();
         _viewCamera = Camera.main;
+        MoveSpeed = moveSpeed;
     }
 
     private void Update () {
         // Movement input
         var moveInput = new Vector3 (Input.GetAxisRaw ("Horizontal"), 0, Input.GetAxisRaw ("Vertical"));
-        var moveVelocity = moveInput.normalized * moveSpeed;
+        var moveVelocity = moveInput.normalized * MoveSpeed;
         _motor.SetVelocity(moveVelocity);
 
         // Look input
         var ray = _viewCamera.ScreenPointToRay (Input.mousePosition);
-        var groundPlane = new Plane (Vector3.up, Vector3.up * gunController.ShootingHeight);
+        var groundPlane = new Plane (Vector3.up, Vector3.up * _gunController.ShootingHeight);
 
         if (groundPlane.Raycast(ray,out var rayDistance)) {
             var point = ray.GetPoint(rayDistance);
@@ -40,10 +41,10 @@ public class Player : LivingEntity
 
         // Weapon input
         if (Input.GetMouseButton(0))
-            gunController.OnTriggerHold();
+            _gunController.OnTriggerHold();
         
         if (Input.GetMouseButtonUp(0))
-            gunController.OnTriggerRelease();
+            _gunController.OnTriggerRelease();
     }
     private void FixedUpdate() => _motor.Movement();
 }

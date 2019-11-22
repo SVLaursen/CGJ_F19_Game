@@ -15,15 +15,16 @@ public class Upgrade : ScriptableObject
 	[Header("Weapon effects")]
 	public float fireRate = 0f;
 	public float fireSpread = 0f;
+	public int burstCount = 0;
 
 	[Header("Projectile effects")]
 	public float range = 0f;
 	public float damage = 0f;
 	public float projectileSpeed = 0f;
 
-	public void ApplyUpgrade()
+	public void ApplyUpgrade(Player player, GunController gunController)
 	{
-
+		
 
 	}
 
@@ -39,6 +40,7 @@ public class Upgrade : ScriptableObject
 		{
 			result += "Vitality " + (vitality > 0 ? $"+{vitality}" : $"{vitality}") + "\n";
 		}
+
 		if (fireRate != 0)
 		{
 			result += "Fire rate " + (fireRate > 0 ? $"+{fireRate}" : $"{fireRate}") + "\n";
@@ -47,6 +49,11 @@ public class Upgrade : ScriptableObject
 		{
 			result += "Fire spread " + (fireSpread > 0 ? $"+{fireSpread}" : $"{fireSpread}") + "\n";
 		}
+		if (burstCount != 0)
+		{
+			result += "Burst Count " + (burstCount > 0 ? $"+{burstCount}" : $"{burstCount}") + "\n";
+		}
+
 		if (range != 0)
 		{
 			result += "Projectile range " + (range > 0 ? $"+{range}" : $"{range}") + "\n";

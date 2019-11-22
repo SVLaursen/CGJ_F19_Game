@@ -7,8 +7,10 @@ using UnityEngine;
 public class Player : LivingEntity
 {
     [SerializeField] private float moveSpeed = 5;
+	[SerializeField] private float moveSpeedDefault = 5;
 
-    private Camera _viewCamera;
+
+	private Camera _viewCamera;
     private PlayerMotor _motor;
     GunController gunController;
 	

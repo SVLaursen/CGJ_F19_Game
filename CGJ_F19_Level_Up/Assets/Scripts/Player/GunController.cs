@@ -11,10 +11,13 @@ public class GunController : MonoBehaviour
 
     [SerializeField] private Transform[] projectileSpawn;
     [SerializeField] private Projectile projectile;
-    [SerializeField] private float msBetweenShots = 100f;
-    [SerializeField] private float muzzleVelocity = 35f;
-    [SerializeField] private int burstCount;
-    [SerializeField] private Vector2 kickMinMax = new Vector2(0.05f, 0.2f);
+	[SerializeField] private float msBetweenShotsDefault = 100f;
+	[SerializeField] private float msBetweenShots = 100f;
+	[SerializeField] private float muzzleVelocityDefault = 35f;
+	[SerializeField] private float muzzleVelocity = 35f;
+	[SerializeField] private int burstCountDefault;
+	[SerializeField] private int burstCount;
+	[SerializeField] private Vector2 kickMinMax = new Vector2(0.05f, 0.2f);
 
     private float _nextShotTime;
     private bool _triggerReleasedSinceLastShot;

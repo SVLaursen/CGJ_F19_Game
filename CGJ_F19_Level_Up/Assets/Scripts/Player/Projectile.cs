@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using Cinemachine;
+using System;
 
 public class Projectile : MonoBehaviour
 {
@@ -37,7 +38,12 @@ public class Projectile : MonoBehaviour
         transform.Translate(Vector3.forward * moveDistance);
     }
 
-    private void OnHitObject(Collider coll, Vector3 hitPoint)
+	public void ApplyStats()
+	{
+		throw new NotImplementedException(); //TODO: This should be implemented, using some struct as parameter ~Stefan
+	}
+
+	private void OnHitObject(Collider coll, Vector3 hitPoint)
     {
         var damagable = coll.GetComponent<ITakeDamage>();
 

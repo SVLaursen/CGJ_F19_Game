@@ -65,6 +65,8 @@ public class GunController : MonoBehaviour
                 
             var newProjectile = Instantiate (projectile, projectileSpawn[i].position, projectileSpawn[i].rotation) as Projectile;
             newProjectile.SetSpeed (muzzleVelocity);
+
+			//TODO: New projectiles should have new stats applied. These stats should come from somewhere... ~Stefan
         }
 
         transform.localPosition -= Vector3.forward * Random.Range(kickMinMax.x, kickMinMax.y);

@@ -39,6 +39,7 @@ public class GunController : MonoBehaviour
 		MuzzleVelocity = muzzleVelocity;
 		BurstCount = burstCount;
 		KickMinMax = kickMinMax;
+		ProjStats = projectileStats;
 	}
 
 	public void OnTriggerHold()

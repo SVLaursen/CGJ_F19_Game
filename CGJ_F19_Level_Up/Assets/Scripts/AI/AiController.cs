@@ -58,8 +58,6 @@ public class AiController : MonoBehaviour
         entity.gameObject.SetActive(true);
         _deactivatedEnemies.RemoveAt(0);
         _activeEnemies.Add(entity);
-        
-        Debug.Log("Entity activated");
     }
 
     public void DeactivateEnemy(Enemy enemy)
@@ -83,7 +81,6 @@ public class AiController : MonoBehaviour
         
         while (enemiesToSpawn > 0)
         {
-            Debug.Log("Hello");
             yield return new WaitForSeconds(waitTime);
             
             ActivateEnemy();

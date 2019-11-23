@@ -71,7 +71,6 @@ public class Enemy : LivingEntity {
 	}
 
 	private void OnTargetDeath() {
-		Debug.Log("Die my darling");
 		hasTarget = false;
 		_currentState = State.Idle;
 		_controller.DeactivateEnemy(this);
@@ -107,6 +106,7 @@ public class Enemy : LivingEntity {
 
 			if (percent >= .5f && !hasAppliedDamage) {
 				hasAppliedDamage = true;
+				CameraController.Instance.PlayerHitEffect();
 				_targetEntity.TakeDamage(damage);
 			}
 

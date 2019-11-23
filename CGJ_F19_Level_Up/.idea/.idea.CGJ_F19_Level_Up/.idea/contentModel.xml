@@ -24,6 +24,7 @@
             <e p="Player.cs" t="Include" />
             <e p="PlayerMotor.cs" t="Include" />
             <e p="Projectile.cs" t="Include" />
+            <e p="ProjectileStats.cs" t="Include" />
           </e>
           <e p="Upgrade" t="Include">
             <e p="Upgrade.cs" t="Include" />

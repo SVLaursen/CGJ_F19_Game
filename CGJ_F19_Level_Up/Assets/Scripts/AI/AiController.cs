@@ -9,6 +9,7 @@ using Random = UnityEngine.Random;
 public class AiController : MonoBehaviour
 {
     [SerializeField] private Enemy enemy;
+    [SerializeField] private Enemy errorEnemy;
     [SerializeField] private Vector3[] spawnLocations;
     [SerializeField] private int enemiesToInstantiate;
     
@@ -38,7 +39,8 @@ public class AiController : MonoBehaviour
     {
         for (var i = 0; i < enemiesToInstantiate; i++)
         {
-            var instantiated = Instantiate(enemy);
+            var randomNum = Random.Range(0, 100);
+            var instantiated = randomNum > 10 ? Instantiate(errorEnemy) : Instantiate(enemy);
             var instanceTransform = instantiated.transform;
             
             instantiated.gameObject.SetActive(false);

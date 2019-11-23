@@ -1,7 +1,15 @@
 {
     "highscores": [
         {
+            "entryName": "lolo\n​",
+            "entryScore": 60
+        },
+        {
             "entryName": "\ntest​",
+            "entryScore": 58
+        },
+        {
+            "entryName": "appel\n​",
             "entryScore": 58
         },
         {
@@ -9,16 +17,8 @@
             "entryScore": 41
         },
         {
-            "entryName": "\ntest​",
-            "entryScore": 23
-        },
-        {
-            "entryName": "test\n​",
-            "entryScore": 23
-        },
-        {
-            "entryName": "test\n​",
-            "entryScore": 0
+            "entryName": "lol\n​",
+            "entryScore": 39
         }
     ]
 }

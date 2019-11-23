@@ -338,7 +338,7 @@ MonoBehaviour:
   - {x: 6.97, y: 1, z: -7.24}
   - {x: -7.13, y: 1, z: -6.7}
   - {x: -7.06, y: 1, z: 6.71}
-  enemiesToInstantiate: 10
+  enemiesToInstantiate: 1000
 --- !u!114 &866513635
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -352,7 +352,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   aiController: {fileID: 866513634}
-  player: {fileID: 0}
+  player: {fileID: 1509557372}
 --- !u!4 &866513636
 Transform:
   m_ObjectHideFlags: 0
@@ -500,8 +500,11 @@ MonoBehaviour:
   - {fileID: 1791803895}
   projectile: {fileID: 758081542748593345, guid: 0e9ca5bee05e396458e3b2f2416197fb,
     type: 3}
+  msBetweenShotsDefault: 100
   msBetweenShots: 100
+  muzzleVelocityDefault: 35
   muzzleVelocity: 35
+  burstCountDefault: 0
   burstCount: 0
   kickMinMax: {x: 0, y: 0}
 --- !u!114 &1509557372

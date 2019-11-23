@@ -11,7 +11,6 @@ GameObject:
   - component: {fileID: 7080866850326190220}
   - component: {fileID: 7080866850326190223}
   - component: {fileID: 7080866850326190222}
-  - component: {fileID: 7080866850326190209}
   - component: {fileID: 7080866850326190208}
   - component: {fileID: 7080866850326190211}
   - component: {fileID: 7080866850326190210}
@@ -84,19 +83,6 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
---- !u!135 &7080866850326190209
-SphereCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7080866850326190213}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Radius: 0.5
-  m_Center: {x: 0, y: 0, z: 0}
 --- !u!54 &7080866850326190208
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -148,7 +134,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   health: 1
-  deathEffect: {fileID: 0}
+  deathEffect: {fileID: 4998904795073148106, guid: f500f649d62d6964d8a10f5e17cef1c9,
+    type: 3}
   attackDistanceThreshold: 0.5
   timeBetweenAttacks: 1
   damage: 1

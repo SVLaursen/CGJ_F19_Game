@@ -5,20 +5,34 @@
             "entryScore": 145
         },
         {
+<<<<<<< Updated upstream
             "entryName": "kate​",
             "entryScore": 83
+=======
+            "entryName": "\n​",
+            "entryScore": 49
+        },
+        {
+            "entryName": "test\n​",
+            "entryScore": 41
+>>>>>>> Stashed changes
         },
         {
             "entryName": "lolo\n​",
             "entryScore": 60
         },
         {
+<<<<<<< Updated upstream
             "entryName": "\ntest​",
             "entryScore": 58
         },
         {
             "entryName": "appel\n​",
             "entryScore": 58
+=======
+            "entryName": "test\n​",
+            "entryScore": 23
+>>>>>>> Stashed changes
         }
     ]
 }

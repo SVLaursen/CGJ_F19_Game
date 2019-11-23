@@ -7,6 +7,38 @@ public class UpgradeScreenManager : MonoBehaviour
 	public UpgradeButton[] buttons = new UpgradeButton[3];
 	public UpgradeSet upgradeSet;
 
+	[SerializeField] private float timeToForcedPick = 3f;
+	private float timePassed = 0f;
+	private bool active;
+	private bool ButtonsActive
+	{
+		get
+		{
+			return active;
+		}
+		set
+		{
+			active = value;
+			timePassed = 0f;
+		}
+	}
+
+	private void Update()
+	{
+		if (active)
+		{
+			if (timePassed > timeToForcedPick)
+			{
+				buttons[Random.Range(0, buttons.Length)].PickUpgrade();
+			}
+			else
+			{
+				timePassed += Time.deltaTime;
+			}
+		}
+
+	}
+
 	public void SetupButtons(UpgradeSet newUpgrades)
 	{
 		upgradeSet = newUpgrades;
@@ -17,6 +49,8 @@ public class UpgradeScreenManager : MonoBehaviour
 			button.SetButtonUpgrade(upgradeSet.upgrades[i]);
 			i++;
 		}
+
+		ShowAllButtons();
 	}
 
 	public void HideAllButtons()
@@ -25,6 +59,8 @@ public class UpgradeScreenManager : MonoBehaviour
 		{
 			button.Hide();
 		}
+
+		ButtonsActive = false;
 	}
 
 	public void ShowAllButtons()
@@ -33,5 +69,7 @@ public class UpgradeScreenManager : MonoBehaviour
 		{
 			button.Reveal();
 		}
+
+		ButtonsActive = true;
 	}
 }

@@ -11,6 +11,6 @@ public class ScoreboardEntryUI : MonoBehaviour
     public void Initialize(ScoreboardDataEntry dataEntry)
     {
         entryNameText.text = dataEntry.entryName;
-        entryNameText.text = dataEntry.entryScore.ToString();
+        entryScoreText.text = dataEntry.entryScore.ToString();
     }
 }

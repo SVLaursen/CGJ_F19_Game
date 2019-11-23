@@ -18,13 +18,13 @@ public class UIMaster : MonoBehaviour
     [SerializeField] private GameObject highscoreTable;
     [SerializeField] private GameObject highscoreText;
 
+    [SerializeField] private GameObject gameOverUi;
+
     private Scoreboard _scoreboard;
 
     private void Awake()
     {
-        entryUiHolder.SetActive(false);
-        highscoreTable.SetActive(false);
-        highscoreText.SetActive(false);
+        gameOverUi.SetActive(false);
 
         _scoreboard = GetComponent<Scoreboard>();
     }
@@ -37,9 +37,7 @@ public class UIMaster : MonoBehaviour
 
     public void GameOverUI()
     {
-        entryUiHolder.SetActive(true);
-        highscoreTable.SetActive(true);
-        highscoreText.SetActive(true);
+        gameOverUi.SetActive(true);
         
         finalScoreText.text = GameMaster.Instance.PlayerScore.ToString();
     }

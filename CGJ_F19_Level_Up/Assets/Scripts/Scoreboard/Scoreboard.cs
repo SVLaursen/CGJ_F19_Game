@@ -10,13 +10,13 @@ public class Scoreboard : MonoBehaviour
     [SerializeField] private Transform highscoreHolder;
     [SerializeField] private GameObject entryObject;
 
-    private string SavePath => $"{Application.persistentDataPath}/highscores.json";
+    private string SavePath => "Assets/Resources/Highscores.json";
     
     public void AddEntry(ScoreboardDataEntry dataEntry)
     {
         var savedScores = GetSavedScores();
         var scoreAdded = false;
-
+        
         for (var i = 0; i < savedScores.highscores.Count; i++)
         {
             if (dataEntry.entryScore <= savedScores.highscores[i].entryScore) continue;
@@ -46,9 +46,11 @@ public class Scoreboard : MonoBehaviour
 
     private ScoreboardSaveData GetSavedScores()
     {
+        Debug.Log("Getting saved scores");
         if (!File.Exists(SavePath))
         {
             File.Create(SavePath).Dispose();
+            Debug.Log("Creating new save file...");
             return new ScoreboardSaveData();
         }
 

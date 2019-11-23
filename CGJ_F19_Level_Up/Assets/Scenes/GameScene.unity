@@ -2508,6 +2508,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   enemy: {fileID: 7080866850326190210, guid: 98d15bda844b9874ba548b8bad8f193f, type: 3}
+  errorEnemy: {fileID: 7080866850326190210, guid: a526bc6f7541b6746892a10dda74671c,
+    type: 3}
   spawnLocations:
   - {x: 7.48, y: 1, z: 8.08}
   - {x: 6.97, y: 1, z: -7.24}

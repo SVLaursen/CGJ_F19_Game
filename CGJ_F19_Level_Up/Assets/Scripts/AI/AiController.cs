@@ -40,7 +40,7 @@ public class AiController : MonoBehaviour
         for (var i = 0; i < enemiesToInstantiate; i++)
         {
             var randomNum = Random.Range(0, 100);
-            var instantiated = randomNum > 10 ? Instantiate(errorEnemy) : Instantiate(enemy);
+            var instantiated = randomNum < 10 ? Instantiate(errorEnemy) : Instantiate(enemy);
             var instanceTransform = instantiated.transform;
             
             instantiated.gameObject.SetActive(false);

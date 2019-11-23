@@ -29,7 +29,7 @@ public class UpgradeScreenManager : MonoBehaviour
 		{
 			if (timePassed > timeToForcedPick)
 			{
-				buttons[Random.Range(0, buttons.Length)].PickUpgrade();
+				PickRandomUpgrade();
 			}
 			else
 			{
@@ -41,6 +41,12 @@ public class UpgradeScreenManager : MonoBehaviour
 
 	public void SetupButtons(UpgradeSet newUpgrades)
 	{
+		if (ButtonsActive)
+		{
+			PickRandomUpgrade();
+			ShowAllButtons();
+		}
+
 		upgradeSet = newUpgrades;
 
 		int i = 0;
@@ -71,5 +77,10 @@ public class UpgradeScreenManager : MonoBehaviour
 		}
 
 		ButtonsActive = true;
+	}
+
+	public void PickRandomUpgrade()
+	{
+		buttons[Random.Range(0, buttons.Length)].PickUpgrade();
 	}
 }

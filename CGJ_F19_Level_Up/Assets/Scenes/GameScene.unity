@@ -2562,8 +2562,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   aiController: {fileID: 866513634}
-  upgradeManager: {fileID: 0}
+  upgradeManager: {fileID: 1115849336}
   player: {fileID: 803856685}
+  startSpawnAmount: 10
+  currentSpawnAmount: 10
+  exponentialGrowthRate: 1.1
 --- !u!4 &866513636
 Transform:
   m_ObjectHideFlags: 0
@@ -2959,6 +2962,7 @@ MonoBehaviour:
   - {fileID: 1503823510}
   - {fileID: 187649239}
   - {fileID: 1946144263}
+  timeToForcedPick: 3
 --- !u!114 &1115849336
 MonoBehaviour:
   m_ObjectHideFlags: 0

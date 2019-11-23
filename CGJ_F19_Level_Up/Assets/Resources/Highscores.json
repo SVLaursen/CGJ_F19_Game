@@ -1,6 +1,14 @@
 {
     "highscores": [
         {
+            "entryName": "EDKH​",
+            "entryScore": 145
+        },
+        {
+            "entryName": "kate​",
+            "entryScore": 83
+        },
+        {
             "entryName": "lolo\n​",
             "entryScore": 60
         },
@@ -11,14 +19,6 @@
         {
             "entryName": "appel\n​",
             "entryScore": 58
-        },
-        {
-            "entryName": "test\n​",
-            "entryScore": 41
-        },
-        {
-            "entryName": "\n​",
-            "entryScore": 18
         }
     ]
 }

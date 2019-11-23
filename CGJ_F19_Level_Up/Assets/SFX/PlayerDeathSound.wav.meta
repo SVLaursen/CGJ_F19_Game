@@ -1,5 +1,9 @@
 fileFormatVersion: 2
+<<<<<<< refs/remotes/origin/master
 guid: c048545d0ab333441b939306adb97b8e
+=======
+guid: 8cde747d4bda1754fb068124076dea61
+>>>>>>> Increased player death sound volume (normalized)
 AudioImporter:
   externalObjects: {}
   serializedVersion: 6

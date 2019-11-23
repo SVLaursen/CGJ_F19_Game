@@ -17,8 +17,11 @@ public class GunController : MonoBehaviour
 	[SerializeField] private Vector2 kickMinMax = new Vector2(0.05f, 0.2f);
 	[SerializeField] private ProjectileStats projectileStats;
 
+    [SerializeField] private AudioClip[] bulletSounds;
 
-	private float _nextShotTime;
+    private AudioSource audioSource;
+
+    private float _nextShotTime;
 	private bool _triggerReleasedSinceLastShot;
 	private int _shotsRemainingInBurst;
 
@@ -32,7 +35,23 @@ public class GunController : MonoBehaviour
 
 	public float ShootingHeight => shootOrigin.position.y;
 
-	private void Start()
+    private void Awake()
+    {
+        audioSource = GetComponent<AudioSource>();
+    }
+
+    private void ShootSound()
+    {
+        AudioClip clip = GetRandomSound();
+        audioSource.PlayOneShot(clip);
+    }
+
+    private AudioClip GetRandomSound()
+    {
+        return bulletSounds[UnityEngine.Random.Range(0, bulletSounds.Length)];
+    }
+
+    private void Start()
 	{
 		FiringMode = _startFiringMode;
 		MsBetweenShots = msBetweenShots;
@@ -55,7 +74,7 @@ public class GunController : MonoBehaviour
 
 	private void Shoot()
 	{
-		if (!(Time.time > _nextShotTime)) return;
+        if (!(Time.time > _nextShotTime)) return;
 
 		if (FiringMode == FireMode.Burst)
 		{
@@ -81,7 +100,7 @@ public class GunController : MonoBehaviour
 			newProjectile.SetSpeed(MuzzleVelocity);
 			newProjectile.ApplyStats(ProjStats);
 		}
-
+        ShootSound();
 		transform.localPosition -= Vector3.forward * Random.Range(KickMinMax.x, KickMinMax.y);
 	}
 

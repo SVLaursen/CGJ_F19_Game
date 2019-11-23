@@ -130,7 +130,7 @@ MonoBehaviour:
     noisePercent: 0.248
     dampingPercent: 0.416
     rotationPercent: 0.129
-  deathSoundObject: {fileID: 8148644704901910609, guid: aaf66e342ebd67142a7672d632c97ee6,
+  deathSoundObject: {fileID: 8148644704901910609, guid: 16e3236836ea44343b899a65a275aeac,
     type: 3}
   attackDistanceThreshold: 0.5
   timeBetweenAttacks: 1

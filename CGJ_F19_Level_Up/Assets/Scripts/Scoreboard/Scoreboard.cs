@@ -11,13 +11,7 @@ public class Scoreboard : MonoBehaviour
     [SerializeField] private GameObject entryObject;
 
     private string SavePath => $"{Application.persistentDataPath}/highscores.json";
-
-    private void Start()
-    {
-        var savedScores = GetSavedScores();
-        UpdateUI(savedScores);
-    }
-
+    
     public void AddEntry(ScoreboardDataEntry dataEntry)
     {
         var savedScores = GetSavedScores();

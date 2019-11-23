@@ -1,14 +1,20 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using Cinemachine;
 
 public class CameraController : MonoBehaviour
 {
-    [SerializeField] private CinemachineVirtualCamera mainCamera;
+    [SerializeField] private Camera mainCamera;
+    [SerializeField] private Transform target;
     [SerializeField] private float zoomDepth;
+    [SerializeField] private CameraShaker shaker;
+    [SerializeField] private CameraShaker.Properties standardShake;
 
     private float _originalZoom;
+    
+    public CameraShaker Shaker { get; private set; }
     
     #region Singleton
     public static CameraController Instance { get; private set; }
@@ -19,7 +25,8 @@ public class CameraController : MonoBehaviour
             Destroy(gameObject);
 
         Instance = this;
-        _originalZoom = mainCamera.m_Lens.FieldOfView;
+        _originalZoom = mainCamera.fieldOfView;
+        Shaker = shaker;
     }
     #endregion
 
@@ -35,18 +42,18 @@ public class CameraController : MonoBehaviour
         {
             if (zoomIn)
             {
-                if (mainCamera.m_Lens.FieldOfView > zoomDepth)
+                if (mainCamera.fieldOfView > zoomDepth)
                 {
-                    mainCamera.m_Lens.FieldOfView -= increment;
+                    mainCamera.fieldOfView -= increment;
                     yield return new WaitForSeconds(0.0001f);
                 }
                 else zoomIn = false;
             }
             else
             {
-                if (mainCamera.m_Lens.FieldOfView < _originalZoom)
+                if (mainCamera.fieldOfView < _originalZoom)
                 {
-                    mainCamera.m_Lens.FieldOfView += increment;
+                    mainCamera.fieldOfView += increment;
                     yield return new WaitForSeconds(0.0001f);
                 }
                 else active = false;

@@ -1,6 +1,8 @@
-﻿using UnityEngine;
+﻿using System;
+using UnityEngine;
 using UnityEngine.AI;
 using System.Collections;
+using Cinemachine;
 
 [RequireComponent (typeof (NavMeshAgent))]
 public class Enemy : LivingEntity {
@@ -26,6 +28,7 @@ public class Enemy : LivingEntity {
 
 	private bool hasTarget;
 	private AiController _controller;
+	private CinemachineImpulseSource _shaker;
 
 	private void Awake() {
 		_pathfinder = GetComponent<NavMeshAgent> ();
@@ -46,6 +49,8 @@ public class Enemy : LivingEntity {
 	protected override void Start () {
 		base.Start ();
 
+		_shaker = GetComponent<CinemachineImpulseSource>();
+
 		if (!hasTarget) return;
 		_currentState = State.Chasing;
 		_targetEntity.OnDeath += OnTargetDeath;
@@ -65,6 +70,7 @@ public class Enemy : LivingEntity {
 	public override void TakeHit (int damage, Vector3 hitPoint, Vector3 hitDirection)
 	{
 		if (damage >= health) {
+			GameMaster.Instance.PlayerScore += 1;
 			Destroy(Instantiate(deathEffect.gameObject, hitPoint, Quaternion.FromToRotation(Vector3.forward, hitDirection)) as GameObject, deathEffect.startLifetime);
 		}
 		base.TakeHit (damage, hitPoint, hitDirection);
@@ -108,6 +114,7 @@ public class Enemy : LivingEntity {
 				hasAppliedDamage = true;
 				CameraController.Instance.PlayerHitEffect();
 				_targetEntity.TakeDamage(damage);
+				_shaker.GenerateImpulse();
 			}
 
 			percent += Time.deltaTime * attackSpeed;

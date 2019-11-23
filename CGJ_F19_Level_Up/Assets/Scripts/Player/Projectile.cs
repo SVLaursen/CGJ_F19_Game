@@ -10,6 +10,7 @@ public class Projectile : MonoBehaviour
 {
     [SerializeField] private AudioClip[] bulletSounds;
 	[SerializeField] private LayerMask collisionMask;
+	[SerializeField] private CameraShaker.Properties shakeSettings;
 
     private AudioSource audioSource;
 
@@ -19,6 +20,7 @@ public class Projectile : MonoBehaviour
 	private float _lifetime = 3f;
 	private float _skinWidth = 0.1f;
 
+	public void SetSpeed(float speed) => _speed = speed;
 	private CinemachineImpulseSource _spawnShake;
 
     private void Awake()
@@ -32,7 +34,6 @@ public class Projectile : MonoBehaviour
     {
         return bulletSounds[UnityEngine.Random.Range(0, bulletSounds.Length)];
     }
-    public void SetSpeed(float speed) => _speed = speed;
 
 	private void Start()
 	{
@@ -42,14 +43,12 @@ public class Projectile : MonoBehaviour
 		if (initialCollisions.Length > 0)
 			OnHitObject(initialCollisions[0], transform.position);
 
-		_spawnShake = GetComponent<CinemachineImpulseSource>();
-		_spawnShake.GenerateImpulse();
+		CameraController.Instance.Shaker.StartShake(shakeSettings);
 	}
 
 	private void Update()
 	{
 		var moveDistance = _speed * Time.deltaTime;
-
 		CheckCollisions(moveDistance);
 		transform.Translate(Vector3.forward * moveDistance);
 	}

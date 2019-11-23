@@ -70,4 +70,9 @@ public class Player : LivingEntity
 		MoveSpeed = moveSpeed;
 		_gunController.SetStatsToDefault();
 	}
+
+	private void OnDisable()
+	{
+		GameMaster.Instance.PlayerDead();
+	}
 }

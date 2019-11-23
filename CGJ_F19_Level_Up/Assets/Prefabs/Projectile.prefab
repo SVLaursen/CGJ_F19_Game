@@ -63,7 +63,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 31321ba15b8f8eb4c954353edc038b1d, type: 2}
+  - {fileID: 2100000, guid: 0f8a3d7048063b442846a1481791dfca, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -122,6 +122,15 @@ MonoBehaviour:
   collisionMask:
     serializedVersion: 2
     m_Bits: 256
+  shakeSettings:
+    angle: 30
+    strength: 2
+    maxSpeed: 10
+    minSpeed: 2
+    duration: 0.5
+    noisePercent: 0.4
+    dampingPercent: 0.14
+    rotationPercent: 0.33
 --- !u!114 &4940441663762969941
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -336,7 +345,7 @@ TrailRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 0}
+  - {fileID: 2100000, guid: 0f8a3d7048063b442846a1481791dfca, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0

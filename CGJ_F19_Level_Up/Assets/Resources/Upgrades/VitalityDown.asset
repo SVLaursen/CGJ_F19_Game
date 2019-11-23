@@ -10,13 +10,13 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 56a50d56f32a24b4ba035c24b25a2630, type: 3}
-  m_Name: U_FireRate_Positive
+  m_Name: VitalityDown
   m_EditorClassIdentifier: 
-  title: Fire Rate Up
-  upgradeType: 0
+  title: Vitality Down
+  upgradeType: 1
   moveSpeed: 0
-  vitality: 0
-  MsBetweenShots: -100
+  vitality: -1
+  MsBetweenShots: 0
   fireSpread: 0
   burstCount: 0
   lifetime: 0

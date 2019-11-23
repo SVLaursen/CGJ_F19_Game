@@ -1,0 +1,24 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 56a50d56f32a24b4ba035c24b25a2630, type: 3}
+  m_Name: VitalityUp
+  m_EditorClassIdentifier: 
+  title: Vitality Up
+  upgradeType: 0
+  moveSpeed: 0
+  vitality: 1
+  MsBetweenShots: 0
+  fireSpread: 0
+  burstCount: 0
+  lifetime: 0
+  damage: 0
+  projectileSpeed: 0

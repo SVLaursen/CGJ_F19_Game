@@ -110,15 +110,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   bulletSounds:
-  - {fileID: 8300000, guid: 89bddcd684d0fa34196b3cc060140a1f, type: 3}
-  - {fileID: 8300000, guid: 916354bd720cc9e47adade02d045fcca, type: 3}
-  - {fileID: 8300000, guid: a72cfc5db39b3a04eae0c20e062e8db4, type: 3}
-  - {fileID: 8300000, guid: e751bea523fca794b903df475b8aaa35, type: 3}
-  - {fileID: 8300000, guid: d340c72957100ec40883ec14736b497c, type: 3}
-  - {fileID: 8300000, guid: 355a83c1302e21d4aa4b02ec30a462e8, type: 3}
-  - {fileID: 8300000, guid: 72e23c1694b5a1b44bf2bfa4847178e8, type: 3}
-  - {fileID: 8300000, guid: bc5a37a5135ec324ca21752d2ffea9d2, type: 3}
-  - {fileID: 8300000, guid: 2862d7714fc0ee7468e2b93f391cc4be, type: 3}
+  - {fileID: 8300000, guid: 62523f5a77bcb2d46b4485d660daa963, type: 3}
+  - {fileID: 8300000, guid: 24141311431ee4b4e895d919a51df1c2, type: 3}
+  - {fileID: 8300000, guid: fc1bc0efc03a9024ba34691aedbce674, type: 3}
+  - {fileID: 8300000, guid: 73f31f0c49d7cf74cb348740e4ae1505, type: 3}
   collisionMask:
     serializedVersion: 2
     m_Bits: 256

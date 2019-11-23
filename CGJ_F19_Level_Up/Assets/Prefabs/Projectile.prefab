@@ -109,14 +109,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   bulletSounds:
-  - {fileID: 8300000, guid: 86439899aefae6c46be6052621657e5c, type: 3}
-  - {fileID: 8300000, guid: cc2481c5817940c429ccc6f0e376a34b, type: 3}
-  - {fileID: 8300000, guid: 1def212b51735c34e9afd33257504acc, type: 3}
-  - {fileID: 8300000, guid: 775a2bd60f7325443b00a7518e85e194, type: 3}
-  - {fileID: 8300000, guid: 74c2e85663909914aa2228b4140b68a3, type: 3}
-  - {fileID: 8300000, guid: 520094871e4257d4e9a51f8d0809fa3c, type: 3}
-  - {fileID: 8300000, guid: ebc8a03dd3e0dd84bb11698f83e7e68a, type: 3}
-  - {fileID: 8300000, guid: 57f6488edf0b00b45ac33ce19affd072, type: 3}
+  - {fileID: 8300000, guid: 6c1a95ba397d4ba4982d857f40a588e8, type: 3}
+  - {fileID: 8300000, guid: 44eda67c51bb3d64eb2a3d3a2c162c43, type: 3}
+  - {fileID: 8300000, guid: bc15b7967321bfc41a46f2dc6e2c4b9e, type: 3}
+  - {fileID: 8300000, guid: 6731d407d486e554ca0cab96160a125f, type: 3}
   collisionMask:
     serializedVersion: 2
     m_Bits: 256
@@ -185,7 +181,7 @@ AudioSource:
     m_Curve:
     - serializedVersion: 3
       time: 0
-      value: 0.6
+      value: 0.675
       inSlope: 0
       outSlope: 0
       tangentMode: 0

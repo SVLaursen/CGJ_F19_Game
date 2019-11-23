@@ -12,8 +12,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 614236751e9b18c42b206c52e541fc22, type: 3}
   m_Name: DefaultProjectileStats
   m_EditorClassIdentifier: 
-  speedDefault: 10
-  speed: 10
+  speedDefault: 100
+  speed: 100
   lifetimeDefault: 3
   lifetime: 3
   damageDefault: 1

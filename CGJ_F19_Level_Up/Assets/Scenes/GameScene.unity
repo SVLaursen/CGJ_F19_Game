@@ -2959,6 +2959,7 @@ MonoBehaviour:
   - {fileID: 1503823510}
   - {fileID: 187649239}
   - {fileID: 1946144263}
+  timeToForcedPick: 3
 --- !u!114 &1115849336
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4655,6 +4656,12 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 1024522477890449334, guid: 2844f2a2bded4394b862d5e093340e91,
+        type: 3}
+      propertyPath: deathSoundObject
+      value: 
+      objectReference: {fileID: 8148644704901910609, guid: c492600bc856cd141a023d109c333418,
+        type: 3}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 2844f2a2bded4394b862d5e093340e91, type: 3}
 --- !u!1001 &1292059904804451407

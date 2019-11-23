@@ -20,6 +20,7 @@
           <e p="Interfaces" t="Include">
             <e p="ITakeDamage.cs" t="Include" />
           </e>
+          <e p="MainMenu.cs" t="Include" />
           <e p="Player" t="Include">
             <e p="GunController.cs" t="Include" />
             <e p="Player.cs" t="Include" />
@@ -36,6 +37,11 @@
           <e p="UIMaster.cs" t="Include" />
           <e p="Upgrade" t="Include">
             <e p="Upgrade.cs" t="Include" />
+          </e>
+        </e>
+        <e p="SFX" t="Include">
+          <e p="Enemies" t="Include">
+            <e p="EnemyDeath.cs" t="Include" />
           </e>
         </e>
         <e p="TextMesh Pro" t="Include">

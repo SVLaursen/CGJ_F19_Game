@@ -6,6 +6,8 @@ using UnityEngine;
 public class GameMaster : MonoBehaviour
 {
     [SerializeField] private AiController aiController;
+	[SerializeField] private UpgradeScreenManager upgradeManager;
+	public Player player;
     
     public int PlayerScore { get; set; }
 

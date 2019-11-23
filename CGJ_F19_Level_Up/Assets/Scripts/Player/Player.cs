@@ -8,6 +8,7 @@ public class Player : LivingEntity
 {
 	[SerializeField] private float moveSpeedDefault = 5;
 	[SerializeField] private float moveSpeed = 5;
+	[SerializeField] private GameObject deathSoundObject;
 
 	private Camera _viewCamera;
 	private PlayerMotor _motor;
@@ -55,7 +56,6 @@ public class Player : LivingEntity
 	}
 	private void FixedUpdate() => _motor.Movement();
 
-
 	public void AddUpgrade(Upgrade u)
 	{
 		if (u != null)
@@ -87,5 +87,6 @@ public class Player : LivingEntity
 	private void OnDisable()
 	{
 		GameMaster.Instance.PlayerDead();
+		Destroy(Instantiate(deathSoundObject, transform.position, Quaternion.identity), 5f);
 	}
 }

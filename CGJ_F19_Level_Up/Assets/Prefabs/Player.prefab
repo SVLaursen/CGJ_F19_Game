@@ -186,14 +186,12 @@ MonoBehaviour:
   kickMinMax: {x: 0, y: 0}
   projectileStats: {fileID: 11400000, guid: a52df2f70758159459932b9828679c27, type: 2}
   bulletSounds:
-  - {fileID: 8300000, guid: 364169690f3339b4eb3fb589639d0348, type: 3}
-  - {fileID: 8300000, guid: 6a8221a0e9da37d4a97592e72c7755d3, type: 3}
-  - {fileID: 8300000, guid: 422a4cf24ca4b3b43a366c3da836c847, type: 3}
-  - {fileID: 8300000, guid: 362b40934ba4aac49887576e14d3a204, type: 3}
-  - {fileID: 8300000, guid: 4503acfbafc811d44a7792dc7d1a5931, type: 3}
-  - {fileID: 8300000, guid: bf9753c8376398740a4978e36f73c48c, type: 3}
-  - {fileID: 8300000, guid: 8be331f0f551f1747be4f39129dcb029, type: 3}
-  - {fileID: 8300000, guid: 54e38b80728532047b7ddc71692e0afe, type: 3}
+  - {fileID: 8300000, guid: 0f033ef75e0f2ea47b355f8025344737, type: 3}
+  - {fileID: 8300000, guid: fb5a20c7b01efab4f92cfb3843df9d92, type: 3}
+  - {fileID: 8300000, guid: 68298bb10b288dc4e834f696bd3f37cc, type: 3}
+  - {fileID: 8300000, guid: 16d7486516886b44ea56350813325166, type: 3}
+  - {fileID: 8300000, guid: c817f9201b986d749a5b95b3a653debd, type: 3}
+  - {fileID: 8300000, guid: a6db443e0a5f0554f8dc2e3917f84549, type: 3}
 --- !u!136 &1024522477890449224
 CapsuleCollider:
   m_ObjectHideFlags: 0

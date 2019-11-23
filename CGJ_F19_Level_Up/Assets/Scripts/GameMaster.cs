@@ -27,7 +27,7 @@ public class GameMaster : MonoBehaviour
     private void FixedUpdate()
     {
         if (aiController.AllEnemiesKilled())
-            aiController.StartWave(.5f, 1000);
+            aiController.StartWave(.1f, 1000);
     }
 
     public void PlayerDead()

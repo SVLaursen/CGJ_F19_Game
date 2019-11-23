@@ -11,9 +11,9 @@ public class PlayerMotor
 
     public void SetVelocity(Vector3 velocity) => _velocity = velocity;
 
-    //public void Movement() => _rigidbody.MovePosition(_rigidbody.position + _velocity * Time.fixedDeltaTime);
+    public void Movement() => _rigidbody.MovePosition(_rigidbody.position + _velocity * Time.fixedDeltaTime);
 
-    public void Movement() => _rigidbody.velocity = _velocity + _rigidbody.transform.forward;
+    // public void Movement() => _rigidbody.velocity = _velocity + _rigidbody.transform.forward;
     
     public void LookAt(Vector3 lookPoint)
     {

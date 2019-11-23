@@ -37,6 +37,7 @@
           <e p="UIMaster.cs" t="Include" />
           <e p="Upgrade" t="Include">
             <e p="Upgrade.cs" t="Include" />
+            <e p="UpgradeManager.cs" t="Include" />
           </e>
         </e>
         <e p="SFX" t="Include">

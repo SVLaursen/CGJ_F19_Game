@@ -6,7 +6,8 @@ using UnityEngine;
 [RequireComponent(typeof(Rigidbody))]
 public class Player : LivingEntity
 {
-    [SerializeField] private float moveSpeed = 5;
+	[SerializeField] private float moveSpeedDefault = 5;
+	[SerializeField] private float moveSpeed = 5;
 
     private Camera _viewCamera;
     private PlayerMotor _motor;
@@ -47,4 +48,16 @@ public class Player : LivingEntity
             _gunController.OnTriggerRelease();
     }
     private void FixedUpdate() => _motor.Movement();
+
+	public void ApplyUpgrades()
+	{
+
+
+	}
+
+	public void SetStatsToDefault()
+	{
+		MoveSpeed = moveSpeed;
+		_gunController.SetStatsToDefault();
+	}
 }

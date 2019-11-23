@@ -87,8 +87,8 @@ public class AiController : MonoBehaviour
         {
             yield return new WaitForSeconds(waitTime);
             
-            if(!_player.gameObject.activeSelf)
-                yield break;
+            //if(!_player.gameObject.activeSelf)
+                //yield break;
             
             ActivateEnemy();
             enemiesToSpawn--;

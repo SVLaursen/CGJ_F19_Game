@@ -14,7 +14,6 @@ public class UpgradeScreenManager : MonoBehaviour
 		int i = 0;
 		foreach (UpgradeButton button in buttons)
 		{
-			Debug.Log(upgradeSet.upgrades[i].UpgradeText());
 			button.SetButtonUpgrade(upgradeSet.upgrades[i]);
 			i++;
 		}

@@ -13,26 +13,40 @@ public class Upgrade : ScriptableObject
 	public int vitality = 0;
 
 	[Header("Weapon effects")]
-	public float fireRate = 0f;
+	public int MsBetweenShots = 0;
 	public float fireSpread = 0f;
 	public int burstCount = 0;
 
 	[Header("Projectile effects")]
-	public float range = 0f;
-	public float damage = 0f;
+	public float lifetime = 0f;
+	public int damage = 0;
 	public float projectileSpeed = 0f;
 
 	public void ApplyUpgrade(Player player, GunController gunController)
 	{
-		
+		//Player
+		player.MoveSpeed += moveSpeed;
+		//TODO: Vitality
 
+		//GunController
+		gunController.MsBetweenShots += MsBetweenShots;
+		//TODO: FireSpread
+		gunController.MuzzleVelocity += projectileSpeed;
+		gunController.BurstCount += burstCount;
+		//TODO: Kickback
+
+		//Projectile
+		gunController.ProjStats.lifetime += lifetime;
+		gunController.ProjStats.damage += damage;
+		gunController.ProjStats.speed += projectileSpeed;
 	}
 
 	public string toString()
 	{
 		string result = "";
 
-		if(moveSpeed != 0)
+		//Player
+		if (moveSpeed != 0)
 		{
 			result += "Movement speed " + (moveSpeed > 0 ? $"+{moveSpeed}" : $"{moveSpeed}") + "\n";
 		}
@@ -41,9 +55,10 @@ public class Upgrade : ScriptableObject
 			result += "Vitality " + (vitality > 0 ? $"+{vitality}" : $"{vitality}") + "\n";
 		}
 
-		if (fireRate != 0)
+		//GunController
+		if (MsBetweenShots != 0)
 		{
-			result += "Fire rate " + (fireRate > 0 ? $"+{fireRate}" : $"{fireRate}") + "\n";
+			result += "Shot delay " + (MsBetweenShots > 0 ? $"+{MsBetweenShots}" : $"{MsBetweenShots}") + "\n";
 		}
 		if (fireSpread != 0)
 		{
@@ -54,9 +69,10 @@ public class Upgrade : ScriptableObject
 			result += "Burst Count " + (burstCount > 0 ? $"+{burstCount}" : $"{burstCount}") + "\n";
 		}
 
-		if (range != 0)
+		//Projectile
+		if (lifetime != 0)
 		{
-			result += "Projectile range " + (range > 0 ? $"+{range}" : $"{range}") + "\n";
+			result += "Projectile lifetime " + (lifetime > 0 ? $"+{lifetime}" : $"{lifetime}") + "\n";
 		}
 		if (damage != 0)
 		{

@@ -6,81 +6,99 @@ using Random = UnityEngine.Random;
 
 public class GunController : MonoBehaviour
 {
-    [SerializeField] private Transform shootOrigin;
-    [SerializeField] private FireMode _startFiringMode;
+	[SerializeField] private Transform shootOrigin;
+	[SerializeField] private FireMode _startFiringMode;
 
-    [SerializeField] private Transform[] projectileSpawn;
-    [SerializeField] private Projectile projectile;
-	[SerializeField] private float msBetweenShotsDefault = 100f;
+	[SerializeField] private Transform[] projectileSpawn;
+	[SerializeField] private Projectile projectile;
 	[SerializeField] private float msBetweenShots = 100f;
-	[SerializeField] private float muzzleVelocityDefault = 35f;
 	[SerializeField] private float muzzleVelocity = 35f;
-	[SerializeField] private int burstCountDefault;
 	[SerializeField] private int burstCount;
 	[SerializeField] private Vector2 kickMinMax = new Vector2(0.05f, 0.2f);
+	[SerializeField] private ProjectileStats projectileStats;
 
-    private float _nextShotTime;
-    private bool _triggerReleasedSinceLastShot;
-    private int _shotsRemainingInBurst;
 
-    public FireMode FiringMode { get; set; }
-    public float MsBetweenShots { get; set; }
-    public float MuzzleVelocity { get; set; }
-    public Vector2 KickMinMax { get; set; }
+	private float _nextShotTime;
+	private bool _triggerReleasedSinceLastShot;
+	private int _shotsRemainingInBurst;
 
-    public float ShootingHeight => shootOrigin.position.y;
+	public FireMode FiringMode { get; set; }
+	public float MsBetweenShots { get; set; }
+	public float MuzzleVelocity { get; set; }
+	public float BurstCount { get; set; }
+	public Vector2 KickMinMax { get; set; }
 
-    private void Start()
-    {
-        FiringMode = _startFiringMode;
-        MsBetweenShots = msBetweenShots;
-        MuzzleVelocity = muzzleVelocity;
-        KickMinMax = kickMinMax;
-    }
+	public ProjectileStats ProjStats { get; set; }
 
-    public void OnTriggerHold()
-    {
-        Shoot();
-        _triggerReleasedSinceLastShot = false;
-    }
+	public float ShootingHeight => shootOrigin.position.y;
 
-    public void OnTriggerRelease()
-    {
-        _triggerReleasedSinceLastShot = true;
-    }
+	private void Start()
+	{
+		FiringMode = _startFiringMode;
+		MsBetweenShots = msBetweenShots;
+		MuzzleVelocity = muzzleVelocity;
+		BurstCount = burstCount;
+		KickMinMax = kickMinMax;
+		ProjStats = projectileStats;
+	}
 
-    private void Shoot()
-    {
-        if (!(Time.time > _nextShotTime)) return;
-        
-        if (FiringMode == FireMode.Burst) {
-            if (_shotsRemainingInBurst == 0) {
-                return;
-            }
-            _shotsRemainingInBurst --;
-        }
-        else if (FiringMode == FireMode.Single) {
-            if (!_triggerReleasedSinceLastShot) {
-                return;
-            }
-        }
+	public void OnTriggerHold()
+	{
+		Shoot();
+		_triggerReleasedSinceLastShot = false;
+	}
 
-        for (var i = 0; i < projectileSpawn.Length; i ++) 
-        {
-            _nextShotTime = Time.time + MsBetweenShots / 1000;
-                
-            var newProjectile = Instantiate (projectile, projectileSpawn[i].position, projectileSpawn[i].rotation) as Projectile;
-            newProjectile.SetSpeed (MuzzleVelocity);
-			//TODO: New projectiles should have new stats applied. These stats should come from somewhere... ~Stefan
-        }
+	public void OnTriggerRelease()
+	{
+		_triggerReleasedSinceLastShot = true;
+	}
 
-        transform.localPosition -= Vector3.forward * Random.Range(KickMinMax.x, KickMinMax.y);
-    }    
+	private void Shoot()
+	{
+		if (!(Time.time > _nextShotTime)) return;
 
-    public enum FireMode
-    {
-        Auto,
-        Burst,
-        Single
-    }
+		if (FiringMode == FireMode.Burst)
+		{
+			if (_shotsRemainingInBurst == 0)
+			{
+				return;
+			}
+			_shotsRemainingInBurst--;
+		}
+		else if (FiringMode == FireMode.Single)
+		{
+			if (!_triggerReleasedSinceLastShot)
+			{
+				return;
+			}
+		}
+
+		for (var i = 0; i < projectileSpawn.Length; i++)
+		{
+			_nextShotTime = Time.time + MsBetweenShots / 1000;
+
+			var newProjectile = Instantiate(projectile, projectileSpawn[i].position, projectileSpawn[i].rotation) as Projectile;
+			newProjectile.SetSpeed(MuzzleVelocity);
+			newProjectile.ApplyStats(ProjStats);
+		}
+
+		transform.localPosition -= Vector3.forward * Random.Range(KickMinMax.x, KickMinMax.y);
+	}
+
+	public enum FireMode
+	{
+		Auto,
+		Burst,
+		Single
+	}
+
+	public void SetStatsToDefault()
+	{
+		MsBetweenShots = msBetweenShots;
+		MuzzleVelocity = muzzleVelocity;
+		BurstCount = burstCount;
+		KickMinMax = kickMinMax;
+
+		ProjStats.SetStatsToDefault();
+	}
 }

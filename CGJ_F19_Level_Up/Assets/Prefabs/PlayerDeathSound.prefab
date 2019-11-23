@@ -45,7 +45,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   deathSounds:
-  - {fileID: 8300000, guid: c048545d0ab333441b939306adb97b8e, type: 3}
+  - {fileID: 8300000, guid: ed6f502440e5d3d4f86fa0ad38e22a61, type: 3}
 --- !u!82 &8345538812324111217
 AudioSource:
   m_ObjectHideFlags: 0

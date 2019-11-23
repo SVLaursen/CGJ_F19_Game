@@ -12,6 +12,7 @@ public class Enemy : LivingEntity {
 
 	[Header("Cool FX!")]
 	[SerializeField] private ParticleSystem deathEffect;
+	[SerializeField] private CameraShaker.Properties shakeEffect;
 
 	private NavMeshAgent _pathfinder;
 	private LivingEntity _targetEntity;
@@ -71,6 +72,7 @@ public class Enemy : LivingEntity {
 	{
 		if (damage >= health) {
 			GameMaster.Instance.PlayerScore += 1;
+			CameraController.Instance.Shaker.StartShake(shakeEffect);
 			Destroy(Instantiate(deathEffect.gameObject, hitPoint, Quaternion.FromToRotation(Vector3.forward, hitDirection)) as GameObject, deathEffect.startLifetime);
 		}
 		base.TakeHit (damage, hitPoint, hitDirection);

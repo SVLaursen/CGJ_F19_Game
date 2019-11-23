@@ -41,9 +41,9 @@ public class Upgrade : ScriptableObject
 		gunController.ProjStats.speed += projectileSpeed;
 	}
 
-	public string toString()
+	public string UpgradeText()
 	{
-		string result = "";
+		string result = title + "\n";
 
 		//Player
 		if (moveSpeed != 0)

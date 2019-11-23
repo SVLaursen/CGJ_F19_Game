@@ -379,7 +379,18 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 187649237}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 187649239}
+        m_MethodName: PickUpgrade
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &187649237
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -428,8 +439,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f56152ab2a52d2e4a829f7b8161e0fb9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  upgradeManager: {fileID: 1115849335}
   key: 2
-  text: {fileID: 360756831}
+  buttonText: {fileID: 360756831}
+  upgrade: {fileID: 0}
+  hide: 0
+  slideTime: 0.5
+  pickedDelay: 0.5
 --- !u!1 &288591269
 GameObject:
   m_ObjectHideFlags: 0
@@ -2414,7 +2430,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   aiController: {fileID: 866513634}
-  upgradeManager: {fileID: 1115849335}
+  upgradeManager: {fileID: 0}
   player: {fileID: 803856685}
 --- !u!4 &866513636
 Transform:
@@ -2704,6 +2720,8 @@ GameObject:
   - component: {fileID: 1115849332}
   - component: {fileID: 1115849331}
   - component: {fileID: 1115849335}
+  - component: {fileID: 1115849336}
+  - component: {fileID: 1115849337}
   m_Layer: 5
   m_Name: UpgradeScreen
   m_TagString: Untagged
@@ -2806,9 +2824,37 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   buttons:
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
+  - {fileID: 1503823510}
+  - {fileID: 187649239}
+  - {fileID: 1946144263}
+--- !u!114 &1115849336
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1115849330}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f77386bf9af1d404d84eb5e37c6ab2cd, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  positiveUpgrades: []
+  neutralUpgrades: []
+  negativeUpgrades: []
+  upgradeScreen: {fileID: 1115849335}
+--- !u!225 &1115849337
+CanvasGroup:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1115849330}
+  m_Enabled: 1
+  m_Alpha: 1
+  m_Interactable: 1
+  m_BlocksRaycasts: 0
+  m_IgnoreParentGroups: 0
 --- !u!1 &1167197991
 GameObject:
   m_ObjectHideFlags: 0
@@ -3684,7 +3730,18 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1503823508}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1503823510}
+        m_MethodName: PickUpgrade
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &1503823508
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3733,8 +3790,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f56152ab2a52d2e4a829f7b8161e0fb9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  upgradeManager: {fileID: 1115849335}
   key: 1
-  text: {fileID: 1186437318}
+  buttonText: {fileID: 1186437318}
+  upgrade: {fileID: 0}
+  hide: 0
+  slideTime: 0.5
+  pickedDelay: 0.5
 --- !u!4 &1509557377 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 1024522477890449227, guid: 2844f2a2bded4394b862d5e093340e91,
@@ -4009,7 +4071,18 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1946144261}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1946144263}
+        m_MethodName: PickUpgrade
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &1946144261
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4058,8 +4131,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f56152ab2a52d2e4a829f7b8161e0fb9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  upgradeManager: {fileID: 1115849335}
   key: 3
-  text: {fileID: 917466839}
+  buttonText: {fileID: 917466839}
+  upgrade: {fileID: 0}
+  hide: 0
+  slideTime: 0.5
+  pickedDelay: 0.5
 --- !u!1 &2017123435
 GameObject:
   m_ObjectHideFlags: 0

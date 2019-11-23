@@ -58,17 +58,23 @@ public class Player : LivingEntity
 
 	public void AddUpgrade(Upgrade u)
 	{
-		upgrades.Add(u);
-		ApplyUpgrades();
+		if (u != null)
+		{
+			upgrades.Add(u);
+			ApplyUpgrades();
+		}
 	}
 
 	public void ApplyUpgrades()
 	{
 		SetStatsToDefault();
 
-		foreach (Upgrade u in upgrades)
+		if (upgrades.Count > 0)
 		{
-			u.ApplyUpgrade(this, _gunController);
+			foreach (Upgrade u in upgrades)
+			{
+				u.ApplyUpgrade(this, _gunController);
+			}
 		}
 	}
 

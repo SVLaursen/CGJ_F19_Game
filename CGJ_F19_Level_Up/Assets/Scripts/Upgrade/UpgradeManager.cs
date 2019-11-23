@@ -22,12 +22,13 @@ public class UpgradeManager : MonoBehaviour
 	[SerializeField] private List<Upgrade> positiveUpgrades = new List<Upgrade>();
 	[SerializeField] private List<Upgrade> neutralUpgrades = new List<Upgrade>();
 	[SerializeField] private List<Upgrade> negativeUpgrades = new List<Upgrade>();
-
+	[SerializeField] private UpgradeScreenManager upgradeScreen;
 
 	// Start is called before the first frame update
 	void Start()
 	{
 		LoadResources();
+		MakeUpgradesAvailable();
 	}
 
 	private void LoadResources()
@@ -82,10 +83,15 @@ public class UpgradeManager : MonoBehaviour
 		}
 	}
 
-	public UpgradeSet GetUpgradeSet()
+	private UpgradeSet GetUpgradeSet()
 	{
 		UpgradeSet result = new UpgradeSet(GetPositiveUpgrade(), GetNeutralUpgrade(), GetNegativeUpgrades());
 
 		return result;
+	}
+
+	public void MakeUpgradesAvailable()
+	{
+		upgradeScreen.SetupButtons(GetUpgradeSet());
 	}
 }

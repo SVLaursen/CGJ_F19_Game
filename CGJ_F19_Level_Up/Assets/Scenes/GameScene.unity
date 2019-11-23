@@ -2688,7 +2688,7 @@ MonoBehaviour:
   muzzleVelocity: 35
   burstCount: 0
   kickMinMax: {x: 0, y: 0}
-  projectileStats: {fileID: 0}
+  projectileStats: {fileID: 11400000, guid: a52df2f70758159459932b9828679c27, type: 2}
 --- !u!114 &1509557372
 MonoBehaviour:
   m_ObjectHideFlags: 0

@@ -55,6 +55,13 @@ public class Player : LivingEntity
 	}
 	private void FixedUpdate() => _motor.Movement();
 
+
+	public void AddUpgrade(Upgrade u)
+	{
+		upgrades.Add(u);
+		ApplyUpgrades();
+	}
+
 	public void ApplyUpgrades()
 	{
 		SetStatsToDefault();

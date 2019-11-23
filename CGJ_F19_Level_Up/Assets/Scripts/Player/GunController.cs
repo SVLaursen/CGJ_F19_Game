@@ -79,7 +79,7 @@ public class GunController : MonoBehaviour
 
 			var newProjectile = Instantiate(projectile, projectileSpawn[i].position, projectileSpawn[i].rotation) as Projectile;
 			newProjectile.SetSpeed(MuzzleVelocity);
-			//newProjectile.ApplyStats(ProjStats);
+			newProjectile.ApplyStats(ProjStats);
 		}
 
 		transform.localPosition -= Vector3.forward * Random.Range(KickMinMax.x, KickMinMax.y);

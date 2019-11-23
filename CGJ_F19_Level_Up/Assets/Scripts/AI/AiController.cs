@@ -16,6 +16,7 @@ public class AiController : MonoBehaviour
     private List<Enemy> _deactivatedEnemies = new List<Enemy>();
 
     private bool _spawning;
+    private Player _player;
 
     public void StartWave(float spawnTime, int amountToSpawn)
     {
@@ -30,6 +31,7 @@ public class AiController : MonoBehaviour
     private void Awake()
     {
         InstantiateEnemyObjects();
+        _player = FindObjectOfType<Player>();
     }
 
     private void InstantiateEnemyObjects()
@@ -82,6 +84,9 @@ public class AiController : MonoBehaviour
         while (enemiesToSpawn > 0)
         {
             yield return new WaitForSeconds(waitTime);
+            
+            if(!_player.gameObject.activeSelf)
+                yield break;
             
             ActivateEnemy();
             enemiesToSpawn--;

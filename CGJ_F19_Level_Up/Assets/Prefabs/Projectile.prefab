@@ -109,10 +109,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   bulletSounds:
-  - {fileID: 8300000, guid: 62523f5a77bcb2d46b4485d660daa963, type: 3}
-  - {fileID: 8300000, guid: 24141311431ee4b4e895d919a51df1c2, type: 3}
-  - {fileID: 8300000, guid: fc1bc0efc03a9024ba34691aedbce674, type: 3}
-  - {fileID: 8300000, guid: 73f31f0c49d7cf74cb348740e4ae1505, type: 3}
+  - {fileID: 8300000, guid: b761d1c973862ad438d1aee4062cce29, type: 3}
+  - {fileID: 8300000, guid: 9c249d4a3ce16a543a26656409fde28d, type: 3}
+  - {fileID: 8300000, guid: acdcbd4a41527d94ab96f85850e87ab0, type: 3}
+  - {fileID: 8300000, guid: a51023cfe3fea7d4bac59ef6f68633d6, type: 3}
+  - {fileID: 8300000, guid: b6885942897416549aa73fbdd55793e1, type: 3}
   collisionMask:
     serializedVersion: 2
     m_Bits: 256
@@ -137,8 +138,8 @@ AudioSource:
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 0}
   m_PlayOnAwake: 0
-  m_Volume: 1
-  m_Pitch: 1
+  m_Volume: 0.8
+  m_Pitch: 0.6
   Loop: 0
   Mute: 0
   Spatialize: 0
@@ -181,7 +182,7 @@ AudioSource:
     m_Curve:
     - serializedVersion: 3
       time: 0
-      value: 0
+      value: 0.6
       inSlope: 0
       outSlope: 0
       tangentMode: 0

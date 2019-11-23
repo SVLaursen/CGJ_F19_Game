@@ -8,7 +8,10 @@ using System;
 
 public class Projectile : MonoBehaviour
 {
+    [SerializeField] private AudioClip[] bulletSounds;
 	[SerializeField] private LayerMask collisionMask;
+
+    private AudioSource audioSource;
 
 	private float _speed = 10f;
 	private int _damage = 1;
@@ -18,7 +21,18 @@ public class Projectile : MonoBehaviour
 
 	private CinemachineImpulseSource _spawnShake;
 
-	public void SetSpeed(float speed) => _speed = speed;
+    private void Awake()
+    {
+        audioSource = GetComponent<AudioSource>();
+        AudioClip clip = GetRandomSound();
+        audioSource.PlayOneShot(clip);
+    }
+
+    private AudioClip GetRandomSound()
+    {
+        return bulletSounds[UnityEngine.Random.Range(0, bulletSounds.Length)];
+    }
+    public void SetSpeed(float speed) => _speed = speed;
 
 	private void Start()
 	{

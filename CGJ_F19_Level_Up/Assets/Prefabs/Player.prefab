@@ -161,6 +161,8 @@ MonoBehaviour:
   health: 5
   moveSpeedDefault: 5
   moveSpeed: 10
+  deathSoundObject: {fileID: 8148644704901910609, guid: c492600bc856cd141a023d109c333418,
+    type: 3}
   upgrades: []
 --- !u!114 &1024522477890449329
 MonoBehaviour:
@@ -183,6 +185,7 @@ MonoBehaviour:
   msBetweenShots: 100
   muzzleVelocity: 35
   burstCount: 0
+  accuracy: 0.8
   kickMinMax: {x: 0, y: 0}
   projectileStats: {fileID: 11400000, guid: a52df2f70758159459932b9828679c27, type: 2}
   bulletSounds:

@@ -14,7 +14,7 @@ public class Upgrade : ScriptableObject
 
 	[Header("Weapon effects")]
 	public int MsBetweenShots = 0;
-	public float fireSpread = 0f;
+	public float accuracy = 0f;
 	public int burstCount = 0;
 
 	[Header("Projectile effects")]
@@ -27,11 +27,10 @@ public class Upgrade : ScriptableObject
 		//Player
 		player.MoveSpeed += moveSpeed;
 		player.Health += vitality;
-		//TODO: Vitality
 
 		//GunController
 		gunController.MsBetweenShots += MsBetweenShots;
-		//TODO: FireSpread
+		gunController.Accuracy += accuracy;
 		gunController.MuzzleVelocity += projectileSpeed;
 		gunController.BurstCount += burstCount;
 		//TODO: Kickback
@@ -61,9 +60,9 @@ public class Upgrade : ScriptableObject
 		{
 			result += "Shot delay " + (MsBetweenShots > 0 ? $"+{MsBetweenShots}" : $"{MsBetweenShots}") + "\n";
 		}
-		if (fireSpread != 0)
+		if (accuracy != 0)
 		{
-			result += "Fire spread " + (fireSpread > 0 ? $"+{fireSpread}" : $"{fireSpread}") + "\n";
+			result += "Accuracy " + (accuracy > 0 ? $"+{accuracy}" : $"{accuracy}") + "\n";
 		}
 		if (burstCount != 0)
 		{

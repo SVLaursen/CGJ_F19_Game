@@ -17,7 +17,7 @@ MonoBehaviour:
   moveSpeed: -2
   vitality: 0
   MsBetweenShots: -50
-  fireSpread: 2
+  accuracy: 0.1
   burstCount: 0
   lifetime: -1
   damage: 0

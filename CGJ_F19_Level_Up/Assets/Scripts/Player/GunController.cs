@@ -14,14 +14,15 @@ public class GunController : MonoBehaviour
 	[SerializeField] private float msBetweenShots = 100f;
 	[SerializeField] private float muzzleVelocity = 35f;
 	[SerializeField] private int burstCount;
+	[SerializeField] private float accuracy = 0.8f;
 	[SerializeField] private Vector2 kickMinMax = new Vector2(0.05f, 0.2f);
 	[SerializeField] private ProjectileStats projectileStats;
 
-    [SerializeField] private AudioClip[] bulletSounds;
+	[SerializeField] private AudioClip[] bulletSounds;
 
-    private AudioSource audioSource;
+	private AudioSource audioSource;
 
-    private float _nextShotTime;
+	private float _nextShotTime;
 	private bool _triggerReleasedSinceLastShot;
 	private int _shotsRemainingInBurst;
 
@@ -29,34 +30,36 @@ public class GunController : MonoBehaviour
 	public float MsBetweenShots { get; set; }
 	public float MuzzleVelocity { get; set; }
 	public float BurstCount { get; set; }
+	public float Accuracy { get; set; }
 	public Vector2 KickMinMax { get; set; }
 
 	public ProjectileStats ProjStats { get; set; }
 
 	public float ShootingHeight => shootOrigin.position.y;
 
-    private void Awake()
-    {
-        audioSource = GetComponent<AudioSource>();
-    }
+	private void Awake()
+	{
+		audioSource = GetComponent<AudioSource>();
+	}
 
-    private void ShootSound()
-    {
-        AudioClip clip = GetRandomSound();
-        audioSource.PlayOneShot(clip);
-    }
+	private void ShootSound()
+	{
+		AudioClip clip = GetRandomSound();
+		audioSource.PlayOneShot(clip);
+	}
 
-    private AudioClip GetRandomSound()
-    {
-        return bulletSounds[UnityEngine.Random.Range(0, bulletSounds.Length)];
-    }
+	private AudioClip GetRandomSound()
+	{
+		return bulletSounds[UnityEngine.Random.Range(0, bulletSounds.Length)];
+	}
 
-    private void Start()
+	private void Start()
 	{
 		FiringMode = _startFiringMode;
 		MsBetweenShots = msBetweenShots;
 		MuzzleVelocity = muzzleVelocity;
 		BurstCount = burstCount;
+		Accuracy = accuracy;
 		KickMinMax = kickMinMax;
 		ProjStats = projectileStats;
 	}
@@ -74,7 +77,7 @@ public class GunController : MonoBehaviour
 
 	private void Shoot()
 	{
-        if (!(Time.time > _nextShotTime)) return;
+		if (!(Time.time > _nextShotTime)) return;
 
 		if (FiringMode == FireMode.Burst)
 		{
@@ -96,11 +99,17 @@ public class GunController : MonoBehaviour
 		{
 			_nextShotTime = Time.time + MsBetweenShots / 1000;
 
-			var newProjectile = Instantiate(projectile, projectileSpawn[i].position, projectileSpawn[i].rotation) as Projectile;
+			Vector3 direction = new Vector3(Random.Range(-1f, 1f), Random.Range(-1f, 1f), Random.Range(-1f, 1f));
+			direction *= 1f - accuracy;
+			direction += projectileSpawn[i].forward * accuracy;
+			direction.y = 0;
+			Quaternion rotation = Quaternion.LookRotation(direction);
+
+			var newProjectile = Instantiate(projectile, projectileSpawn[i].position, rotation) as Projectile;
 			newProjectile.SetSpeed(MuzzleVelocity);
 			newProjectile.ApplyStats(ProjStats);
 		}
-        ShootSound();
+		ShootSound();
 		transform.localPosition -= Vector3.forward * Random.Range(KickMinMax.x, KickMinMax.y);
 	}
 
@@ -116,6 +125,7 @@ public class GunController : MonoBehaviour
 		MsBetweenShots = msBetweenShots;
 		MuzzleVelocity = muzzleVelocity;
 		BurstCount = burstCount;
+		Accuracy = accuracy;
 		KickMinMax = kickMinMax;
 
 		ProjStats.SetStatsToDefault();

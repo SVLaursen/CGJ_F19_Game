@@ -10,7 +10,7 @@ public class Scoreboard : MonoBehaviour
     [SerializeField] private Transform highscoreHolder;
     [SerializeField] private GameObject entryObject;
 
-    private string SavePath => "Assets/Resources/Highscores.json";
+    private string SavePath => "Assets/StreamableAssets/Highscores.json";
     
     public void AddEntry(ScoreboardDataEntry dataEntry)
     {

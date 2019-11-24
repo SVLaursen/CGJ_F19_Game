@@ -66,6 +66,7 @@ public class AiController : MonoBehaviour
 
 	public void DeactivateEnemy(Enemy enemy)
 	{
+		Debug.Log("Deactivated Enemy");
 		for (var i = 0; i < _activeEnemies.Count; i++)
 		{
 			if (_activeEnemies[i] != enemy) continue;
@@ -97,7 +98,6 @@ public class AiController : MonoBehaviour
 
 			ActivateEnemy();
 			enemiesToSpawn--;
-			Debug.Log($"Enemies to spawn: {enemiesToSpawn}");
 		}
 		Debug.Log("NotSpawning");
 		_spawning = false;

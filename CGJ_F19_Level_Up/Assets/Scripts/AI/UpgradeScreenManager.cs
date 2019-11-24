@@ -82,5 +82,6 @@ public class UpgradeScreenManager : MonoBehaviour
 	public void PickRandomUpgrade()
 	{
 		buttons[Random.Range(0, buttons.Length)].PickUpgrade();
+		ButtonsActive = false;
 	}
 }

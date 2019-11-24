@@ -10,8 +10,8 @@ public class GameMaster : MonoBehaviour
 	public Player player;
 	[SerializeField] private int startSpawnAmount = 10;
 	[SerializeField] private int currentSpawnAmount = 10;
-	[SerializeField] private float exponentialGrowthRate = 2f;
-
+	[SerializeField] private float growthRate = 1.1f;
+	public bool ExponentialGrowth = true;
 
 	public int PlayerScore { get; set; }
 
@@ -51,6 +51,15 @@ public class GameMaster : MonoBehaviour
 
 	private void NewSpawnAmount()
 	{
-		currentSpawnAmount = (int)Mathf.Pow(currentSpawnAmount, exponentialGrowthRate);
+		if (ExponentialGrowth)
+		{
+			currentSpawnAmount = (int)Mathf.Pow(currentSpawnAmount, growthRate);
+		}
+		else
+		{
+			currentSpawnAmount += (int)growthRate;
+		}
+
+		Debug.Log($"Next wave will have {currentSpawnAmount}");
 	}
 }

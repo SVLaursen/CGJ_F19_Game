@@ -2566,7 +2566,8 @@ MonoBehaviour:
   player: {fileID: 803856685}
   startSpawnAmount: 10
   currentSpawnAmount: 10
-  exponentialGrowthRate: 1.1
+  growthRate: 1.1
+  ExponentialGrowth: 1
 --- !u!4 &866513636
 Transform:
   m_ObjectHideFlags: 0

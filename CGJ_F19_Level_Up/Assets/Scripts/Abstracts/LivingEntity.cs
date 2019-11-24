@@ -6,7 +6,7 @@ using UnityEngine;
 public class LivingEntity : MonoBehaviour, ITakeDamage
 {
     [SerializeField] protected int health;
-    public int Health { get; private set; }
+    public int Health { get;  set; }
 
     public event Action OnDeath;
     protected bool _isDead;

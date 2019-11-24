@@ -95,7 +95,7 @@ public class UpgradeButton : MonoBehaviour
 
 	public void SlideIn()
 	{
-		if (timePassed < slideTime && hide)
+		if (timePassed < slideTime && !hide)
 		{
 			timePassed += Time.deltaTime;
 

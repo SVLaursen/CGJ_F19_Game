@@ -26,6 +26,7 @@ public class Upgrade : ScriptableObject
 	{
 		//Player
 		player.MoveSpeed += moveSpeed;
+		player.Health += vitality;
 		//TODO: Vitality
 
 		//GunController
